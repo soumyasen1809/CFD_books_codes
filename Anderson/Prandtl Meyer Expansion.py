@@ -135,6 +135,9 @@ for itr in range(num_itrs):
             pow((M_cal * M_cal) - 1, 0.5)), 0.5)
         f_act = f_cal + phi
         # M_act = 1/float(math.sin(f_act))        # Completely wrong formula - trial and error method required
+        # Calculate M from angle f - www.pdas.com/pm.pdf
+        # nu = pow(f_act/float((math.sqrt(6)-1)*math.pi/float(2)), 2/float(3))
+        # M_act = (1+ 1.3604*nu + 0.0962*nu*nu - 0.5127*nu*nu*nu)/float(1 - 0.6722*nu - 0.3278*nu*nu)
         M_act = 2
         P[i+1, 0] = P[i, 0] * pow(
             (1 + ((gamma - 1) / float(2)) * M_cal * M_cal) / float(1 + ((gamma - 1) / float(2)) * M_act * M_act),
